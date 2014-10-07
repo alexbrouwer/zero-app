@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="OAuth\Entity\RefreshToken" table="oauth_refresh_tokens">
+        <id name="id" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="token" type="string" length="40" nullable="false" unique="true"/>
+        <field name="expires" type="datetime" nullable="false"/>
+        <field name="scope" type="string" length="2000" nullable="true"/>
+        <field name="username" type="string" length="255" nullable="false"/>
+        <field name="clientIdentifier" type="string" length="255" nullable="false"/>
+    </entity>
+</doctrine-mapping>
