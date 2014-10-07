@@ -157,7 +157,7 @@ class DoctrineAdapter implements AuthorizationCodeInterface, AccessTokenInterfac
      * Check password using bcrypt
      *
      * @param UserInterface $user
-     * @param string $password
+     * @param string        $password
      * @return bool
      */
     protected function checkPassword(UserInterface $user, $password)
@@ -204,7 +204,7 @@ class DoctrineAdapter implements AuthorizationCodeInterface, AccessTokenInterfac
     public function setAuthorizationCode($code, $client_id, $user_id, $redirect_uri, $expires, $scope = null)
     {
         // Convert some arguments to proper objects
-        $expires = \DateTime::createFromFormat('U', $expires);
+        $expires = $this->timestampToDatetime($expires);
         $client = $this->clientManager->getByIdentifier($client_id);
 
         if (func_num_args() > 6) {
@@ -241,7 +241,7 @@ class DoctrineAdapter implements AuthorizationCodeInterface, AccessTokenInterfac
     public function setAccessToken($oauth_token, $client_id, $user_id, $expires, $scope = null)
     {
         // Convert some arguments to proper objects
-        $expires = \DateTime::createFromFormat('U', $expires);
+        $expires = $this->timestampToDatetime($expires);
         $client = $this->clientManager->getByIdentifier($client_id);
 
         $this->accessTokenManager->storeToken($oauth_token, $client, $user_id, $expires, $scope);
@@ -370,7 +370,7 @@ class DoctrineAdapter implements AuthorizationCodeInterface, AccessTokenInterfac
     public function setRefreshToken($refresh_token, $client_id, $user_id, $expires, $scope = null)
     {
         // Convert some arguments to proper objects
-        $expires = \DateTime::createFromFormat('U', $expires);
+        $expires = $this->timestampToDatetime($expires);
         $client = $this->clientManager->getByIdentifier($client_id);
 
         $this->refreshTokenManager->storeToken($refresh_token, $client, $user_id, $expires, $scope);
@@ -382,5 +382,13 @@ class DoctrineAdapter implements AuthorizationCodeInterface, AccessTokenInterfac
     public function unsetRefreshToken($refresh_token)
     {
         $this->refreshTokenManager->removeToken($refresh_token);
+    }
+
+    private function timestampToDatetime($timestamp)
+    {
+        $dateTime = new \DateTime();
+        $dateTime->setTimestamp($timestamp);
+
+        return $dateTime;
     }
 }

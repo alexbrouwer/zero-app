@@ -8,7 +8,7 @@
         </id>
 
         <field name="token" type="string" length="40" nullable="false" unique="true"/>
-        <field name="expires" type="datetime" nullable="false"/>
+        <field name="expires" type="datetimetz" nullable="false"/>
         <field name="scope" type="string" length="2000" nullable="true"/>
         <field name="username" type="string" length="255" nullable="false"/>
         <field name="clientIdentifier" type="string" length="255" nullable="false"/>
