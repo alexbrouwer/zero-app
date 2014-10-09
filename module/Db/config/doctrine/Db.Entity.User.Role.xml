@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Db\Entity\User\Role" table="user_roles">
+        <id name="id" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="name" type="string" length="255"/>
+
+        <many-to-many target-entity="Db\Entity\User\Role" field="children">
+            <join-table name="user_roles__user_roles">
+                <join-columns>
+                    <join-column/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+
+        <many-to-many target-entity="Db\Entity\User\Permission" field="permissions" index-by="name">
+            <join-table name="user_roles__user_permissions">
+                <join-columns>
+                    <join-column/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+    </entity>
+</doctrine-mapping>

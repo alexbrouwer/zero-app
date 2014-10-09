@@ -10,11 +10,11 @@ return array(
         ),
     ),
     'zf-oauth2' => array(
-        'storage' => 'OAuth\\Adapter\\DoctrineAdapter',
+        'storage' => 'Security\\OAuth\\Adapter\\DoctrineAdapter',
         'object_manager' => 'doctrine.entitymanager.orm_default',
         'storage_settings' => array(
-            'user' => 'Db\Entity\User',
-            'client' => 'Db\Entity\Client'
+            'user_entity_class' => 'Db\Entity\User',
+            'client_entity_class' => 'Db\Entity\Client'
         ),
         'db' => array(
             'dsn_type' => 'PDO',

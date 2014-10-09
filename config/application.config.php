@@ -28,9 +28,9 @@ return array(
         'DoctrineModule',
         'DoctrineORMModule',
         'Base',
+        'Security',
+        'Db',
         'Api',
-        'OAuth',
-        'Db'
     ),
     'module_listener_options' => array(
         'module_paths' => array(

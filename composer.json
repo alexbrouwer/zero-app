@@ -33,7 +33,8 @@
         "zfcampus/zf-development-mode": "~2.0",
         "zfcampus/zf-apigility-doctrine": "dev-master",
         "doctrine/doctrine-orm-module": "*",
-        "gedmo/doctrine-extensions": "~2.3"
+        "gedmo/doctrine-extensions": "~2.3",
+        "zfr/rbac": "~1.2"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",

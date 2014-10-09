@@ -3,7 +3,7 @@
 
 namespace Db\Entity;
 
-use OAuth\Entity\AbstractClient;
+use Security\Entity\OAuth\AbstractClient;
 
 class Client extends AbstractClient
 {

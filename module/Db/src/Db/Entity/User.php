@@ -3,7 +3,8 @@
 
 namespace Db\Entity;
 
-use OAuth\Entity\AbstractUser;
+use Doctrine\Common\Collections\ArrayCollection;
+use Security\Entity\OAuth\AbstractUser;
 
 class User extends AbstractUser
 {
@@ -22,6 +23,16 @@ class User extends AbstractUser
      * @var \DateTime
      */
     protected $updatedAt;
+
+    /**
+     * @var ArrayCollection|User\Role[]
+     */
+    protected $roles;
+
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -49,5 +60,13 @@ class User extends AbstractUser
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @return User\Role[]
+     */
+    public function getRoles()
+    {
+        return $this->roles->toArray();
     }
 }
