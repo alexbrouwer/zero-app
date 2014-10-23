@@ -32,4 +32,9 @@ return array(
             'Base\Hydrator\DoctrineHydratorFactory'
         ),
     ),
+    'service_manager' => array(
+        'invokables' => array(
+            'ZF\\Apigility\\Doctrine\\Server\\Hydrator\\Strategy\\CollectionExtract' => 'ZF\\Apigility\\Doctrine\\Server\\Hydrator\\Strategy\\CollectionExtract',
+        ),
+    )
 );

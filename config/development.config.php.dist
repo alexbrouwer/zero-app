@@ -10,6 +10,7 @@ return array(
         'ZFTool',
         'ZF\Apigility\Admin',
         'ZF\Apigility\Welcome',
+        'ZF\\Apigility\\Doctrine\\Admin',
         'DoctrineDataFixtureModule',
     ),
     // development time configuration globbing

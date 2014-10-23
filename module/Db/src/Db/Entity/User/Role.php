@@ -26,6 +26,11 @@ class Role implements HierarchicalRoleInterface
     protected $children;
 
     /**
+     * @var Role|null
+     */
+    protected $parent;
+
+    /**
      * @var ArrayCollection|Permission[]
      */
     protected $permissions;
@@ -113,12 +118,17 @@ class Role implements HierarchicalRoleInterface
         return isset($this->permissions[(string)$permission]);
     }
 
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function getChildren()
     {
-        return $this->children->toArray();
+        return $this->children;
     }
 
     /**
@@ -127,5 +137,13 @@ class Role implements HierarchicalRoleInterface
     public function hasChildren()
     {
         return !$this->children->isEmpty();
+    }
+
+    /**
+     * @return Role|null
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

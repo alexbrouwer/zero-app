@@ -10,4 +10,7 @@ return array(
         ),
         'description' => 'Ping the API for availability',
     ),
+    'Api\\V1\\Rest\\User\\Controller' => array(
+        'description' => 'Users',
+    ),
 );

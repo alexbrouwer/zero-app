@@ -34,7 +34,8 @@
         "zfcampus/zf-apigility-doctrine": "dev-master",
         "doctrine/doctrine-orm-module": "*",
         "gedmo/doctrine-extensions": "~2.3",
-        "zfr/rbac": "~1.2"
+        "zfr/rbac": "~1.2",
+        "sp/jms-serializer-module": "dev-master"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",

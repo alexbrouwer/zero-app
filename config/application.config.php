@@ -27,6 +27,7 @@ return array(
         'ZF\\Apigility\\Doctrine\\Server',
         'DoctrineModule',
         'DoctrineORMModule',
+        'JMSSerializerModule',
         'Base',
         'Security',
         'Db',

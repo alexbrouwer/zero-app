@@ -14,4 +14,14 @@ return array(
             ],
         ],
     ],
+    'jsm_serializer' => array(
+        'metadata' => array(
+            'direcories' => array(
+                'db' => array(
+                    'namespace_prefix' => 'Db\Entity',
+                    'path' => __DIR__ .'/serializer'
+                )
+            )
+        )
+    )
 );

@@ -3,7 +3,7 @@
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
                   xsi="http://www.w3.org/2001/XMLSchema-instance"
                   schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="Db\Entity\User" table="users">
+    <entity name="Db\Entity\User" table="user">
         <id name="id" type="integer">
             <generator strategy="AUTO"/>
         </id>
@@ -17,7 +17,7 @@
         </field>
 
         <many-to-many target-entity="Db\Entity\User\Role" field="roles">
-            <join-table name="users__user_roles">
+            <join-table name="user__user_role">
                 <join-columns>
                     <join-column/>
                 </join-columns>
